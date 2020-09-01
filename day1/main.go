@@ -27,6 +27,10 @@ func main() {
 }
 
 func calculateFuel(mass int) int {
-	fuel := (mass / 3) - 2
+	if (mass/3)-2 <= 0 {
+		return 0
+	}
+	fuelInit := (mass / 3) - 2
+	fuel := fuelInit + calculateFuel(fuelInit)
 	return fuel
 }
